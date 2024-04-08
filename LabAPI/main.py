@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
@@ -44,3 +45,9 @@ def predict_anomaly(p1: float, p2: float, p3: float, p4: float):
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host=os.environ["HOST"], port=os.environ["PORT"])
